@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 30px;
+}
+
+.wrapper h2 {
+  font-size: 24px;
+  text-align: center;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+  width: 100%;
+}

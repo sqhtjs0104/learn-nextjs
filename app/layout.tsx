@@ -1,3 +1,4 @@
+import "../styles/global.css";
 import Nav from "../components/nav"
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Nav />
-        <main style={{ width: "80%", margin: "auto", border: "1px solid #242424", padding: "20px", }}>
+        <main>
           {children}
         </main>
       </body>

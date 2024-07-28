@@ -1,3 +1,5 @@
+import styles from  '../styles/book.module.css';
+
 export interface IBook {
   rank: number,
   rank_last_week: number,
@@ -27,7 +29,22 @@ export interface IBook {
   book_uri: string,
 }
 
-export default function Book() {
-  return <>
-  </>
+export default function Book({
+  data
+}: {
+  data: IBook
+}) {
+  return <li className={styles.book}>
+    <img src={data.book_image} />
+    <div className={styles.info}>
+      <div>
+        <h4>{data.title}</h4>
+        <span>{data.author}</span>
+      </div>
+      {
+        data.buy_links.length > 0 && <a href={data.buy_links[0].url} target='_blank'>Buy now →</a>
+      }
+      
+    </div>
+  </li>
 }

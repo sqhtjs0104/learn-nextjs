@@ -1,0 +1,15 @@
+.about {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+}
+
+.about h1 {
+  font-size: 24px;
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}

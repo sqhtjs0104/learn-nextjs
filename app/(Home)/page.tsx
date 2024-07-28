@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { resolve } from "path";
+import styles from '../../styles/home.module.css';
 
 export const metadata = {
   title: "Home",
@@ -24,15 +24,16 @@ export interface ICategory {
 
 export default async function Home() {
   const [categories] = await Promise.all([getCategories()]);
-  console.log(categories);
-  return <>
+  return <div className={styles.wrapper}>
     <h1>The New York Times Best Seller Explorer</h1>
-    <div>
+    <ul className={styles.list}>
       {
         categories?.status === 'OK' && categories.results.map((category: ICategory) => (
-          <Link key={category.list_name} href={`/list/${category.list_name_encoded}`}>{category.display_name} →</Link>
+          <li key={category.list_name}>
+            <Link key={category.list_name} href={`/list/${category.list_name_encoded}`}>{category.display_name} →</Link>
+          </li>
         ))
       }
-    </div>
-  </>;
+    </ul>
+  </div>;
 }

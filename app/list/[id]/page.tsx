@@ -1,5 +1,6 @@
 import { ICategory } from "../../(Home)/page";
-import { IBook } from "../../../components/Book";
+import Book, { IBook } from "../../../components/Book";
+import styles from '../../../styles/list.module.css';
 
 export const metadata = {
   title: "Detail"
@@ -21,7 +22,7 @@ interface ICategoryDetail extends ICategory {
   books: [],
 }
 
-export default async function Detail({
+export default async function List({
   params: { id },
 }: {
   params: { id: string }
@@ -35,12 +36,14 @@ export default async function Detail({
 
   const categoryDetailResults: ICategoryDetail = detail.results;
 
-  return <>
+  return <section className={styles.wrapper}>
     <h2>{categoryDetailResults.display_name}</h2>
+    <ul className={styles.list}>
     {
       categoryDetailResults.books.map((book: IBook) => (
-        <></>
+        <Book key={book.primary_isbn10} data={book} />
       ))
     }
-  </>
+    </ul>
+  </section>
 }
